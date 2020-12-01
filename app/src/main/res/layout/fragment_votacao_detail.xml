@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_votacao_detail_lista"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_votacao_detail_nota_rodape_conteudo"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_lista_voto"
+        tools:itemCount="5"/>
+    <TextView
+        android:id="@+id/fragment_votacao_detail_tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@id/fragment_votacao_detail_resultado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="SIMBÓLICA" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_materia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="MATÉRIA"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_votacao_detail_materia_conteudo"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_votacao_detail_guideline_v_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fragment_votacao_detail_materia_conteudo" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_materia_conteudo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/fragment_votacao_detail_ementa_conteudo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_votacao_detail_guideline_v_1"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_voto_sim_conteudo"
+        tools:text="PL 620/2016 DO EXECUTIVO" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_ementa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="EMENTA"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_votacao_detail_ementa_conteudo"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_votacao_detail_guideline_v_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/fragment_votacao_detail_ementa_conteudo" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_ementa_conteudo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/fragment_votacao_detail_nota_rodape_conteudo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_votacao_detail_guideline_v_1"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_materia_conteudo"
+        tools:text="INSTITUI A RENDA BASICA DE CIDADANIA - RBC E O FUNDO MINUCIPAL DA RENDA BASICA DE CIDADANIA - FMRBC" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fragment_votacao_detail_tipo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="APROVADO" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_nota_rodape_conteudo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragment_votacao_detail_guideline_v_1"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_ementa_conteudo"
+        tools:text="\n\n " />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_nota_rodape"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="NOTAS DE \nRODAPÉ"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_votacao_detail_nota_rodape_conteudo"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_votacao_detail_guideline_v_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fragment_votacao_detail_nota_rodape_conteudo" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_presentes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="PRESENTES"
+        app:layout_constraintEnd_toStartOf="@id/fragment_votacao_detail_abstencoes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_tipo" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_abstencoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ABSTENÇÕES"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_votacao_detail_presentes"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_votacao_detail_brancos"
+        app:layout_constraintStart_toEndOf="@+id/fragment_votacao_detail_presentes"
+        app:layout_constraintTop_toTopOf="@+id/fragment_votacao_detail_presentes" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_brancos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BRANCOS"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_votacao_detail_abstencoes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_votacao_detail_abstencoes"
+        app:layout_constraintTop_toTopOf="@+id/fragment_votacao_detail_abstencoes" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_presentes_conteudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_votacao_detail_presentes"
+        app:layout_constraintStart_toStartOf="@+id/fragment_votacao_detail_presentes"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_presentes"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_abstencoes_conteudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_votacao_detail_abstencoes"
+        app:layout_constraintStart_toStartOf="@+id/fragment_votacao_detail_abstencoes"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_abstencoes"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_brancos_conteudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_votacao_detail_brancos"
+        app:layout_constraintStart_toStartOf="@+id/fragment_votacao_detail_brancos"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_brancos"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_voto_sim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="SIM"
+        app:layout_constraintEnd_toStartOf="@id/fragment_votacao_detail_voto_nao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_presentes_conteudo" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_voto_nao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NÃO"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_votacao_detail_voto_sim"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fragment_votacao_detail_voto_sim"
+        app:layout_constraintTop_toTopOf="@+id/fragment_votacao_detail_voto_sim" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_voto_sim_conteudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_votacao_detail_voto_sim"
+        app:layout_constraintStart_toStartOf="@+id/fragment_votacao_detail_voto_sim"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_voto_sim"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/fragment_votacao_detail_voto_nao_conteudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_votacao_detail_voto_nao"
+        app:layout_constraintStart_toStartOf="@+id/fragment_votacao_detail_voto_nao"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_votacao_detail_voto_nao"
+        tools:text="0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_votacao_detail_guideline_v_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <View
+        android:id="@+id/fragment_votacao_detail_separador"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#CCC"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_votacao_detail_lista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
