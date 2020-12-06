@@ -14,9 +14,7 @@ import com.tenorinho.olhonacamara.net.RetrofitConfig
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import retrofit2.*
 
 class SessoesFragments : Fragment(){
     private var refreshLayout:SwipeRefreshLayout? = null
@@ -33,7 +31,7 @@ class SessoesFragments : Fragment(){
         refreshLayout = view.findViewById(R.id.swipeContainer)
         refreshLayout?.setOnRefreshListener { refreshList() }
         refreshLayout?.setColorSchemeResources(R.color.colorAccent, android.R.color.black)
-        lista = view.findViewById(R.id.fragment_home_lista)
+        lista = view.findViewById(R.id.fragment_sessoes_lista)
         adapter = SessoesAdapter(null, activity!!)
         lista?.adapter = adapter
         return view

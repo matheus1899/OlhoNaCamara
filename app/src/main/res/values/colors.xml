@@ -3,4 +3,11 @@
     <color name="colorPrimary">#D00</color>
     <color name="colorPrimaryDark">#B00</color>
     <color name="colorAccent">#666</color>
+
+    <color name="votoSim">#0A0</color>
+    <color name="votoNao">#B00</color>
+    <color name="votoAbstencao">#DD0</color>
+    <color name="votoContorno">#222</color>
+    <color name="votoBranco">#EEE</color>
+    <color name="presentes">#33F</color>
 </resources>

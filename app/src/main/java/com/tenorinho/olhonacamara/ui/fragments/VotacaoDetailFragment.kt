@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -33,15 +34,10 @@ class VotacaoDetailFragment : Fragment(){
         lista?.adapter = adapter
         if(votacao != null){
             if(votacao!!.TipoVotacao[0] == 'S'){
-                view.findViewById<TextView>(R.id.fragment_votacao_detail_presentes).visibility = View.GONE
                 view.findViewById<TextView>(R.id.fragment_votacao_detail_presentes_conteudo).visibility = View.GONE
-                view.findViewById<TextView>(R.id.fragment_votacao_detail_abstencoes).visibility = View.GONE
                 view.findViewById<TextView>(R.id.fragment_votacao_detail_abstencoes_conteudo).visibility = View.GONE
-                view.findViewById<TextView>(R.id.fragment_votacao_detail_brancos).visibility = View.GONE
                 view.findViewById<TextView>(R.id.fragment_votacao_detail_brancos_conteudo).visibility = View.GONE
-                view.findViewById<TextView>(R.id.fragment_votacao_detail_voto_nao).visibility = View.GONE
                 view.findViewById<TextView>(R.id.fragment_votacao_detail_voto_nao_conteudo).visibility = View.GONE
-                view.findViewById<TextView>(R.id.fragment_votacao_detail_voto_sim).visibility = View.GONE
                 view.findViewById<TextView>(R.id.fragment_votacao_detail_voto_sim_conteudo).visibility = View.GONE
             }
             else{
@@ -52,10 +48,19 @@ class VotacaoDetailFragment : Fragment(){
                 view.findViewById<TextView>(R.id.fragment_votacao_detail_voto_sim_conteudo).text = votacao?.Sim.toString()
             }
             view.findViewById<TextView>(R.id.fragment_votacao_detail_ementa_conteudo).text = votacao?.Ementa?.trimStart() ?: "\n"
-            view.findViewById<TextView>(R.id.fragment_votacao_detail_materia_conteudo).text = votacao?.Materia?.trimStart()?.replace("\t","\n") ?: ""
+            view.findViewById<TextView>(R.id.fragment_votacao_detail_materia_conteudo).text = votacao?.Materia?.trimStart()?.replace("\t","\n") ?: "\n"
             view.findViewById<TextView>(R.id.fragment_votacao_detail_nota_rodape_conteudo).text = votacao?.NotasRodape?.trimStart()?.replace("\t","\n") ?: "\n\n"
-            view.findViewById<TextView>(R.id.fragment_votacao_detail_resultado).text = votacao?.Resultado
-            view.findViewById<TextView>(R.id.fragment_votacao_detail_tipo).text = votacao?.TipoVotacao
+            if(votacao?.Resultado != null && votacao?.Resultado is String){
+                val res = votacao?.Resultado as String
+                when(res.get(0)){
+                    'R', 'r' -> { view.findViewById<ImageView>(R.id.fragment_votacao_detail_img_aprovacao).setImageResource(R.drawable.ic_reprovado_24) }
+                    'A', 'a' -> { view.findViewById<ImageView>(R.id.fragment_votacao_detail_img_aprovacao).setImageResource(R.drawable.ic_aprovado_24) }
+                }
+            }
+            when(votacao?.TipoVotacao?.get(0)){
+                'N', 'n' -> { view.findViewById<ImageView>(R.id.fragment_votacao_detail_img_tipo).setImageResource(R.drawable.ic_votacao_nominal) }
+                'S', 's' -> { view.findViewById<ImageView>(R.id.fragment_votacao_detail_img_tipo).setImageResource(R.drawable.ic_votacao_simbolica) }
+            }
         }
         return view
     }

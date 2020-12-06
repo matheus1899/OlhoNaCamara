@@ -60,6 +60,7 @@ class VotosAdapter : RecyclerView.Adapter<VotosAdapter.VotoHolder> {
                     'N'-> holder.viewVoto.setBackgroundResource(R.drawable.shape_voto_nao_24dp)
                     'A'-> holder.viewVoto.setBackgroundResource(R.drawable.shape_voto_abstencao_24dp)
                     'S'-> holder.viewVoto.setBackgroundResource(R.drawable.shape_voto_sim_24dp)
+                    'B'-> holder.viewVoto.setBackgroundResource(R.drawable.shape_voto_branco_24dp)
                 }
             }
         }

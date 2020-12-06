@@ -1,6 +1,8 @@
 package com.tenorinho.olhonacamara.models
 
 import com.google.gson.annotations.SerializedName
+import java.time.Instant
+import java.util.*
 
 data class VotPeriodoAux(
     @SerializedName("d")
@@ -23,7 +25,25 @@ data class Sessao(
     var Data:Any? = null,
     @SerializedName("Votacoes")
     var Votacoes:List<Votacao>?
-)
+){
+    fun getDataFormatada():Date?{
+        if(Data == null){
+            return null
+        }
+        else{
+           if(Data is String){
+                val s:String = Data as String
+                val l:Long = s.replace(Regex("[^0-9]"), "").toLong()
+                val calendar = Calendar.getInstance(TimeZone.getTimeZone("America/Sao_Paulo"))
+                calendar.timeInMillis = l
+                return calendar.time
+           }
+           else{
+               return null
+           }
+        }
+    }
+}
 data class Votacao(
     @SerializedName("Votos")
     var Votos:List<Voto>,
@@ -31,7 +51,7 @@ data class Votacao(
     var TipoVotacao:String,
     @SerializedName("NotasRodape")
     var NotasRodape:String,
-    @SerializedName("Resutado")
+    @SerializedName("Resultado")
     var Resultado:String,
     @SerializedName("Materia")
     var Materia:String,
