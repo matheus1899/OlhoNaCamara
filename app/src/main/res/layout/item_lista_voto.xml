@@ -5,13 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/custom_ripple"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="84dp">
 
     <TextView
         android:id="@+id/item_lista_voto_nome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="18dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textStyle="bold"
+        android:textColor="@color/textTitle"
+        style="@android:style/TextAppearance.Small"
         app:layout_constraintBottom_toTopOf="@+id/item_lista_voto_partido"
         app:layout_constraintEnd_toStartOf="@+id/item_lista_voto_guideline_h_1"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +27,10 @@
         android:id="@+id/item_lista_voto_partido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="18dp"
         android:text="BENÇOLA"
+        android:textColor="@color/textSubtitle"
+        style="@android:style/TextAppearance.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/item_lista_voto_guideline_h_1"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,9 +52,10 @@
 
     <View
         android:id="@+id/item_lista_voto_separador"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="#CCC"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

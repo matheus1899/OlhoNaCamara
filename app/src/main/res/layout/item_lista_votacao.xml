@@ -14,38 +14,38 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
+        android:textColor="@color/textTitle"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textAllCaps="true"
         app:layout_constraintBottom_toTopOf="@id/item_lista_votacao_tipo"
         app:layout_constraintEnd_toStartOf="@+id/item_lista_votacao_guideline_v_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="PL 620/2020" />
 
-    <TextView
+    <ImageView
         android:id="@+id/item_lista_votacao_tipo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="4dp"
-        android:textAllCaps="true"
-        app:layout_constraintBottom_toTopOf="@+id/item_lista_votacao_resultado"
-        app:layout_constraintEnd_toStartOf="@+id/item_lista_votacao_guideline_v_1"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="8dp"
+        android:padding="4dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/item_lista_votacao_resultado"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_lista_votacao_info"
-        tools:text="Nominal" />
+        tools:srcCompat="@drawable/ic_votacao_simbolica"/>
 
-    <TextView
+    <ImageView
         android:id="@+id/item_lista_votacao_resultado"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
-        android:textAllCaps="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_lista_votacao_tipo"
         app:layout_constraintEnd_toStartOf="@+id/item_lista_votacao_guideline_v_1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_lista_votacao_tipo"
-        tools:text="APROVADO" />
+        app:layout_constraintStart_toEndOf="@+id/item_lista_votacao_tipo"
+        app:layout_constraintTop_toTopOf="@+id/item_lista_votacao_tipo"
+        tools:srcCompat="@drawable/ic_aprovado_24"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/item_lista_votacao_guideline_v_1"
@@ -62,6 +62,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/textSubtitle"
         app:layout_constraintBottom_toTopOf="@id/item_lista_votacao_ementa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/item_lista_votacao_guideline_v_1"
@@ -77,6 +79,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:maxLines="3"
+        android:ellipsize="end"
+        android:textColor="@color/textSubtitle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/item_lista_votacao_guideline_v_1"

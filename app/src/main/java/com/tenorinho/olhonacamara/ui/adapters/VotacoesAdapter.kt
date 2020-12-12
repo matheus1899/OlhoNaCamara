@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -23,22 +24,22 @@ class VotacoesAdapter : RecyclerView.Adapter<VotacoesAdapter.VotacaoHolder> {
     }
     class VotacaoHolder:RecyclerView.ViewHolder{
         val txtInfo:TextView
-        val txtTipo:TextView
-        val txtResultado:TextView
+        val imgTipo:ImageView
+        val imgResultado:ImageView
         val txtMateria:TextView
         val txtEmenta:TextView
         val root:View
         constructor(view: View):super(view){
             root = view
             txtInfo = view.findViewById(R.id.item_lista_votacao_info)
-            txtTipo = view.findViewById(R.id.item_lista_votacao_tipo)
-            txtResultado = view.findViewById(R.id.item_lista_votacao_resultado)
+            imgTipo = view.findViewById(R.id.item_lista_votacao_tipo)
+            imgResultado = view.findViewById(R.id.item_lista_votacao_resultado)
             txtMateria = view.findViewById(R.id.item_lista_votacao_materia)
             txtEmenta = view.findViewById(R.id.item_lista_votacao_ementa)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VotacaoHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lista_votacao,parent, false)
+        val view:View = LayoutInflater.from(parent.context).inflate(R.layout.item_lista_votacao,parent, false)
         return VotacaoHolder(view)
     }
     override fun getItemCount(): Int {
@@ -56,15 +57,27 @@ class VotacoesAdapter : RecyclerView.Adapter<VotacoesAdapter.VotacaoHolder> {
     }
     override fun onBindViewHolder(holder: VotacaoHolder, position: Int) {
         holder.root.setOnClickListener { onClick(position) }
-        val votacao = sessao?.Votacoes?.get(position)
+        val votacao:Votacao? = sessao?.Votacoes?.get(position)
         if(votacao?.Tipo.isNullOrEmpty() || votacao?.Numero == null || votacao?.Ano == null){
             holder.txtInfo.text = ""
         }
         else{
             holder.txtInfo.text = "${votacao?.Tipo} ${votacao?.Numero}/${votacao?.Ano}"
         }
-        holder.txtTipo.text = votacao?.TipoVotacao
-        holder.txtResultado.text = votacao?.Resultado
+        if(votacao?.Resultado != null){
+            val res:String = votacao.Resultado as String
+            when(res.get(0)){
+                'R', 'r' -> { holder.imgResultado.setImageResource(R.drawable.ic_reprovado_24) }
+                'A', 'a' -> { holder.imgResultado.setImageResource(R.drawable.ic_aprovado_24) }
+            }
+        }
+        if(votacao?.TipoVotacao != null){
+            val res:String = votacao.TipoVotacao as String
+            when(res.get(0)){
+                'N', 'n' -> { holder.imgTipo.setImageResource(R.drawable.ic_votacao_nominal) }
+                'S', 's' -> { holder.imgTipo.setImageResource(R.drawable.ic_votacao_simbolica) }
+            }
+        }
         holder.txtMateria.text = votacao?.Materia
         holder.txtEmenta.text = votacao?.Ementa
     }
